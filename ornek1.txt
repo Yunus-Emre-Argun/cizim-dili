@@ -1,0 +1,4 @@
+-- Bu bir yorum satırıdır
+x <- 5;
+eger x = 5 ise
+    daire_ciz x x 10;
