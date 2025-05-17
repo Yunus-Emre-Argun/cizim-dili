@@ -1,0 +1,7 @@
+fonk hareket_et {
+    dongu i < 10 {
+        eger tus_basildi(TUS_YUKARI) {
+            ileri +<- 1
+        }
+    }
+}
