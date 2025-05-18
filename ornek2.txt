@@ -1,4 +1,7 @@
-fonk hareket_et ileri:
-    tus_basildi TUS_YUKARI
-        ileri +<- 1;
-knof
+dongu x <> 1 iken
+    eger x % 2 = 0 ise
+        x <- x / 2;
+    aksi halde
+        x <- 3 * x + 1;
+neki
+
