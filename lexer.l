@@ -13,24 +13,43 @@ COMMENT     "--".*
 
 "eger"              { return IF; }
 "ise"               { return THEN; }
+"aksi"              { return ELSE; }
+"halde"             { /* sadece okunur, yoksay */ }
+
+"fonk"              { return FONK; }
+"knof"              { return KNOF; }
+
+"tus_basildi"       { return TUS_BASILDI; }
+"TUS_YUKARI"        { return TUS_YUKARI; }
+"TUS_ASAGI"         { return TUS_ASAGI; }
+"TUS_SOLA"          { return TUS_SOLA; }
+"TUS_SAGA"          { return TUS_SAGA; }
+
 "daire_ciz"         { return DRAW_CIRCLE; }
+
+"CALL"              { return CALL; }
+"RETURN"            { return RETURN; }
+
 "<-"                { return ASSIGN; }
+"+<-"|"-<-"        { return ADD_SUB_ASSIGN; }
 "="                 { return EQUAL; }
 "<>"                { return NOT_EQUAL; }
-"+<-"               { return ADD_SUB_ASSIGN; }
 
 "dongu"             { return DONGU; }
 "iken"              { return IKEN; }
 "neki"              { return NEKI; }
-"fonk"              { return FUNCTION; }       // Alternatif isimlendirme: FONK
-"knof"              { return END_FUNCTION; }   // Varsa kapanış token'ı
-"tus_basildi"       { return KEY_PRESSED; }
-"TUS_YUKARI"        { return KEY_UP; }
+
+"+"                 { return PLUS; }
+"-"                 { return MINUS; }
+"*"                 { return MULT; }
+"/"                 { return DIV; }
+"%"                 { return MOD; }
+"^"                 { return POW; }
 
 {DIGIT}             { yylval.num = atoi(yytext); return NUMBER; }
 {ID}                { yylval.id = strdup(yytext); return IDENTIFIER; }
-{COMMENT}           { /* yorumları yoksay */ }
-[ \t\r\n]+          { /* boşlukları atla */ }
+{COMMENT}           { /* yorumlari yoksay */ }
+[ \t\r\n]+          { /* bosluklari yoksay */ }
 .                   { return *yytext; }
 
 %%
@@ -38,4 +57,3 @@ COMMENT     "--".*
 int yywrap(void) {
     return 1;
 }
-

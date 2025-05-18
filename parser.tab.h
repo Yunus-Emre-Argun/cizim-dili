@@ -59,8 +59,8 @@ extern int yydebug;
     IF = 260,                      /* IF  */
     THEN = 261,                    /* THEN  */
     ELSE = 262,                    /* ELSE  */
-    ELSE_IF = 263,                 /* ELSE_IF  */
-    FUNCTION = 264,                /* FUNCTION  */
+    FUNCTION = 263,                /* FUNCTION  */
+    END_FUNCTION = 264,            /* END_FUNCTION  */
     RETURN = 265,                  /* RETURN  */
     CALL = 266,                    /* CALL  */
     DRAW_CIRCLE = 267,             /* DRAW_CIRCLE  */
@@ -69,20 +69,26 @@ extern int yydebug;
     KEY_DOWN = 270,                /* KEY_DOWN  */
     KEY_LEFT = 271,                /* KEY_LEFT  */
     KEY_RIGHT = 272,               /* KEY_RIGHT  */
-    LOOP = 273,                    /* LOOP  */
-    WHILE = 274,                   /* WHILE  */
-    ENDLOOP = 275,                 /* ENDLOOP  */
-    ASSIGN = 276,                  /* ASSIGN  */
-    ADD_ASSIGN = 277,              /* ADD_ASSIGN  */
-    SUB_ASSIGN = 278,              /* SUB_ASSIGN  */
-    EQUAL = 279,                   /* EQUAL  */
-    NOT_EQUAL = 280,               /* NOT_EQUAL  */
-    PLUS = 281,                    /* PLUS  */
-    MINUS = 282,                   /* MINUS  */
-    MULT = 283,                    /* MULT  */
-    DIV = 284,                     /* DIV  */
-    MOD = 285,                     /* MOD  */
-    POW = 286                      /* POW  */
+    DONGU = 273,                   /* DONGU  */
+    IKEN = 274,                    /* IKEN  */
+    NEKI = 275,                    /* NEKI  */
+    FONK = 276,                    /* FONK  */
+    KNOF = 277,                    /* KNOF  */
+    TUS_BASILDI = 278,             /* TUS_BASILDI  */
+    TUS_YUKARI = 279,              /* TUS_YUKARI  */
+    TUS_ASAGI = 280,               /* TUS_ASAGI  */
+    TUS_SOLA = 281,                /* TUS_SOLA  */
+    TUS_SAGA = 282,                /* TUS_SAGA  */
+    ASSIGN = 283,                  /* ASSIGN  */
+    ADD_SUB_ASSIGN = 284,          /* ADD_SUB_ASSIGN  */
+    EQUAL = 285,                   /* EQUAL  */
+    NOT_EQUAL = 286,               /* NOT_EQUAL  */
+    PLUS = 287,                    /* PLUS  */
+    MINUS = 288,                   /* MINUS  */
+    MULT = 289,                    /* MULT  */
+    DIV = 290,                     /* DIV  */
+    MOD = 291,                     /* MOD  */
+    POW = 292                      /* POW  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -96,7 +102,7 @@ union YYSTYPE
     int num;
     char* id;
 
-#line 100 "parser.tab.h"
+#line 106 "parser.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

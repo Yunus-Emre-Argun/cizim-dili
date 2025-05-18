@@ -16,19 +16,18 @@ int yylineno;
 %token <num> NUMBER
 %token <id> IDENTIFIER
 
-// Yeni tokenlar
-%token IF THEN ELSE ELSE_IF
-%token FUNCTION RETURN CALL
+// Anahtar kelimeler ve komutlar
+%token IF THEN ELSE
+%token FUNCTION END_FUNCTION RETURN CALL
 %token DRAW_CIRCLE
 %token KEY_PRESSED KEY_UP KEY_DOWN KEY_LEFT KEY_RIGHT
-
 %token DONGU IKEN NEKI
 %token FONK KNOF
-%token TUS_BASILDI TUS_YUKARI
+%token TUS_BASILDI TUS_YUKARI TUS_ASAGI TUS_SOLA TUS_SAGA
 
-%token ASSIGN ADD_ASSIGN SUB_ASSIGN
-%token ADD_SUB_ASSIGN NOT_EQUAL
-%token EQUAL
+// Operatörler
+%token ASSIGN ADD_SUB_ASSIGN
+%token EQUAL NOT_EQUAL
 %token PLUS MINUS MULT DIV MOD POW
 
 %start program
@@ -38,7 +37,7 @@ int yylineno;
 program:
     statement_list
     {
-        printf("[Başarılı] Kod gramer kurallarına uygundur.\n");
+        printf("[Basarili] Kod gramer kurallarina uygundur.\n");
     }
 ;
 
@@ -53,11 +52,19 @@ statement:
     | IF expression THEN statement
     | IF expression THEN statement ELSE statement
     | FONK IDENTIFIER IDENTIFIER_LIST ':' statement_list KNOF
+    | FUNCTION IDENTIFIER IDENTIFIER_LIST ':' statement_list END_FUNCTION
     | CALL IDENTIFIER argument_list ';'
     | DRAW_CIRCLE expression expression expression ';'
-    | TUS_BASILDI TUS_YUKARI statement
+    | TUS_BASILDI direction statement
     | DONGU expression IKEN statement_list NEKI
     | RETURN expression ';'
+;
+
+direction:
+      TUS_YUKARI
+    | TUS_ASAGI
+    | TUS_SOLA
+    | TUS_SAGA
 ;
 
 IDENTIFIER_LIST:
@@ -86,6 +93,5 @@ expression:
 %%
 
 void yyerror(const char *s) {
-    fprintf(stderr, "Hata (Satır %d): %s\n", yylineno, s);
+    fprintf(stderr, "Hata (Satir %d): %s\n", yylineno, s);
 }
-
