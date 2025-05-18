@@ -1,0 +1,5 @@
+fonk oyuncu_cizdir x y:
+    daire_ciz x y 5;
+knof
+
+CALL oyuncu_cizdir 10 10;

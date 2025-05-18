@@ -1,0 +1,13 @@
+tus_basildi TUS_YUKARI
+    oyuncu_y +<- 5;
+
+tus_basildi TUS_ASAGI
+    oyuncu_y -<- 5;
+
+tus_basildi TUS_SOLA
+    oyuncu_x -<- 5;
+
+tus_basildi TUS_SAGA
+    oyuncu_x +<- 5;
+
+CALL oyuncu_cizdir oyuncu_x oyuncu_y;
